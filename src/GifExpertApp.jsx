@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
+import { GitGrid } from "./components/GitGrid";
 
 export const GifExpertApp = () => {
 
-  const [categories, setCategories] = useState(['One Punch', 'Dragon Ball']);
+  const [categories, setCategories] = useState(['One Punch']);
 
   const onAddCategory = (onNewCategory) => {
-    console.log(onNewCategory)
+    if (categories.includes(onNewCategory)) return console.warn(`Warn: La categoria ${onNewCategory} ya existe`);
     setCategories((category) => [...category, onNewCategory])
   }
 
@@ -15,16 +16,12 @@ export const GifExpertApp = () => {
     <>
       <h1>GifEsperApp</h1>
 
-      {/* Input */}
       <AddCategory onNewCategory={event => onAddCategory(event)} />
-      {/* Listados de gif */}
-      {/* <button onClick={onAddCategory}>agregar</button> */}
-      <ol>
-        {categories.map((category, index) => {
-          return <li key={index}>{category}</li>
-        })}
-      </ol>
-      {/* git Item */}
+
+      {categories.map((category) => (
+        <GitGrid key={category} category={category} />
+      )
+      )}
     </>
   )
 }
