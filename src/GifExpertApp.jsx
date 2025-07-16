@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { AddCategory } from "./components/AddCategory";
-import { GitGrid } from "./components/GitGrid";
+import { AddCategory, GitGrid } from "./components";
+
 
 export const GifExpertApp = () => {
 
-  const [categories, setCategories] = useState(['One Punch']);
+  const [categories, setCategories] = useState(['One Piece']);
 
   const onAddCategory = (onNewCategory) => {
     if (categories.includes(onNewCategory)) return console.warn(`Warn: La categoria ${onNewCategory} ya existe`);
-    setCategories((category) => [...category, onNewCategory])
+    setCategories((category) => [onNewCategory, ...category])
   }
 
 

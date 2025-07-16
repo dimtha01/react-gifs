@@ -3,7 +3,7 @@ import { useState } from "react";
 export const AddCategory = ({ onNewCategory }) => {
   const [inputValue, setInputValue] = useState('One Punch');
   const onInputChange = (event) => {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     setInputValue(event.target.value)
   }
   const onSubmit = (event) => {
