@@ -1,5 +1,5 @@
 export const GifItem = ({ id, title, url }) => {
-  console.log(title, url);
+  // console.log(title, url);
 
   return (
     <>
